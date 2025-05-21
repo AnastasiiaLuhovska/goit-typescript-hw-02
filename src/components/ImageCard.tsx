@@ -1,7 +1,13 @@
 import s from './ImageCard.module.css'
+import {OpenModal, Photo} from "../types";
+import {FC} from "react";
 
-const ImageCard = ({photo, openModal}) => {
-    const {urls, alt_description} = photo
+interface CardProps{
+    photo: Photo,
+    openModal: OpenModal
+}
+const ImageCard: FC<CardProps> = ({photo, openModal}) => {
+        const {urls, alt_description} = photo
     return (
         <li className={s.card} onClick={() => openModal(photo)}>
             <div>

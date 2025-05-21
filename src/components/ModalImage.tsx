@@ -1,5 +1,12 @@
 import Modal from 'react-modal';
+import {Photo} from "../types";
+import {FC} from "react";
 
+interface Modal{
+    modalImage: Photo,
+    modalIsOpen: boolean,
+    closeModal: ()=>void
+}
 Modal.setAppElement('#root');
 
 const customStyles = {
@@ -26,7 +33,7 @@ const customStyles = {
             inset: 0,
         },
 };
-const ModalImage = ({modalImage, modalIsOpen, closeModal}) => {
+const ModalImage: FC<Modal> = ({modalImage, modalIsOpen, closeModal}) => {
 
     return (
         <div>

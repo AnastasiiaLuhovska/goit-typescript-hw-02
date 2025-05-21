@@ -1,5 +1,10 @@
 import axios from "axios";
+import {Photo} from '../types'
 
+interface Data{
+    results: Photo[],
+    total_pages: number
+}
 const API_KEY = '8LUoXBv9MmNR18UNgJwMn29FRapTZ6KhbL6MkUfVhwI'
 
 const api = axios.create({
@@ -13,7 +18,7 @@ const api = axios.create({
     }
 });
 
-const getData = async (query, page) =>{
+const getData = async (query:string, page:number):Promise<Data> =>{
     const {data} = await api.get('search/photos', {params: {query, page}})
     console.log(data)
     return data
